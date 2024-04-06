@@ -120,8 +120,8 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
   return (
     <div className="flex flex-col space-y-2 p-4 bg-neutral-2 rounded-lg shadow-md">
       <div className="flex flex-wrap justify-between items-center gap-2">
-        {showUserData && <div className="flex items-center space-x-4 cursor-pointer" onClick={openUserInfo}>
-          {(post.userData.photoURL) ?
+        {showUserData && post.userData && <div className="flex items-center space-x-4 cursor-pointer" onClick={openUserInfo}>
+          {(post.userData.photoURL ) ?
             <img className="w-16 h-16 rounded-full object-cover" src={post.userData.photoURL} alt="User logo" /> :
             <ReactIcon src={<BiSolidUser className="w-16 h-16" />} color="" />}
           <p className="text-2xl">{post.userData.name || 'Anonymous'}</p>
@@ -154,13 +154,14 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
         <div className="flex space-x-2">
           <div className="flex items-center space-x-2">
             <ReactIcon src={<FaHeart className="w-6 h-6 cursor-pointer duration-150 hover:opacity-75 active:scale-125" onClick={addReaction} />}
-              color={(post.reactions.includes(auth.currentUser?.uid) ? '#00A9BC' : '#73C67E')} />
+              color={(post.reactions.includes(auth.currentUser?.uid) ? 
+              '#127be3' : '#A1A19C')} />
             <p className="text-2xl">{post.reactions.length}</p>
           </div>
 
           <div className="flex items-center space-x-2">
             <ReactIcon src={<BiSolidBookmark className={markPostIcon} onClick={markPost} />}
-              color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#73C67E')} />
+              color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#A1A19C')} />
             <p className="text-2xl">{post.marked.length}</p>
           </div>
         </div>

@@ -12,7 +12,7 @@ function Sidebar() {
     if (href === currentPath) {
       return '#FFFFFF';
     }
-    return '#EEEEEE';
+    return '#73C67E';
   }
 
   const navClass = classNames('z-30', 'flex', 'flex-col', 'justify-center',
@@ -31,6 +31,10 @@ function Sidebar() {
 
       <SidebarLink href="/marked" title="Marked" selected={currentPath === '/marked'}>
         <ReactIcon src={<BiSolidBookmark className="w-8 h-8 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
+      </SidebarLink>
+
+      <SidebarLink href="/chat" title="Chat Bot" selected={currentPath === '/chat'}>
+        <ReactIcon src={<BiSolidBookmark className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
       </SidebarLink>
 
       <SidebarLink href="/profile" title="Profile" selected={currentPath === '/profile'}>

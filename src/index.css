@@ -12,7 +12,7 @@
   font-family: Roboto;
 
 }
-
+/*
 input[type="checkbox"]:checked + label::before {
   padding: 5px;
   background-image: url('./svg/check.svg');
@@ -39,4 +39,4 @@ input[type="checkbox"]:checked + label::before {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #bfbfb4;
-}
+} */
