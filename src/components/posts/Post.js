@@ -154,13 +154,14 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
         <div className="flex space-x-2">
           <div className="flex items-center space-x-2">
             <ReactIcon src={<FaHeart className="w-6 h-6 cursor-pointer duration-150 hover:opacity-75 active:scale-125" onClick={addReaction} />}
-              color={(post.reactions.includes(auth.currentUser?.uid) ? '#00A9BC' : '#73C67E')} />
+              color={(post.reactions.includes(auth.currentUser?.uid) ? 
+              '#127be3' : '#A1A19C')} />
             <p className="text-2xl">{post.reactions.length}</p>
           </div>
 
           <div className="flex items-center space-x-2">
             <ReactIcon src={<BiSolidBookmark className={markPostIcon} onClick={markPost} />}
-              color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#73C67E')} />
+              color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#A1A19C')} />
             <p className="text-2xl">{post.marked.length}</p>
           </div>
         </div>
