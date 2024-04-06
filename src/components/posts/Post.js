@@ -120,8 +120,8 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
   return (
     <div className="flex flex-col space-y-2 p-4 bg-neutral-2 rounded-lg shadow-md">
       <div className="flex flex-wrap justify-between items-center gap-2">
-        {showUserData && <div className="flex items-center space-x-4 cursor-pointer" onClick={openUserInfo}>
-          {(post.userData.photoURL) ?
+        {showUserData && post.userData && <div className="flex items-center space-x-4 cursor-pointer" onClick={openUserInfo}>
+          {(post.userData.photoURL ) ?
             <img className="w-16 h-16 rounded-full object-cover" src={post.userData.photoURL} alt="User logo" /> :
             <ReactIcon src={<BiSolidUser className="w-16 h-16" />} color="" />}
           <p className="text-2xl">{post.userData.name || 'Anonymous'}</p>
