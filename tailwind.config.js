@@ -10,21 +10,21 @@ module.exports = {
     colors: {
       primary: '#016A70',
       primarySaturated: '#418f94',
-      secondary: '#73C67E',
-      secondarySaturated: '#96d49e',
+      secondary: '#8da9c4',
+      secondarySaturated: '#83c5be',
       accent: '#00A9BC',
       neutral: {
-        1: '#ffffed',
-        2: '#f7f7e9',
-        3: '#e6e6da',
-        4: '#808079'
+        1: '#051923',
+        2: '#134074',
+        3: '#0582ca',
+        4: '#023e7d'
       },
       neutralSaturated: {
         1: '#f0f0e1',
         2: '#a1a19c',
       },
       info: '#127be3',
-      error: '#e32e12',
+      error: '#e09f3e',
       errorSaturated: '#ea634e'
     },
     animation: {
