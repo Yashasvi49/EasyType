@@ -90,6 +90,7 @@ function SignIn() {
 
   const signInWithGoogle = async () => {
     try {
+      console.log("Hello")
       const result = await signInWithPopup(auth, googleProvider);
       if (getAdditionalUserInfo(result).isNewUser) await setUserData();
 
@@ -97,6 +98,7 @@ function SignIn() {
         id: nanoid(), type: 'Info', text: 'Successfully logged in using Google'
       }));
     } catch (error) {
+      console.log(error)
       dispatch(showNotification({
         id: nanoid(), type: 'Error', text: 'Failed to login to user'
       }));
@@ -123,7 +125,7 @@ function SignIn() {
             <span>Sign In</span>
           </Button>
 
-          <Button className="w-full" onClick={signInWithGoogle}>
+          <Button className="w-full" onClick={()=>signInWithGoogle}>
             <img className="w-6 h-6" src={google} alt="" />
             <span>Google</span>
           </Button>
