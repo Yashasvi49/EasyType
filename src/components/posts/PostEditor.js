@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
@@ -14,10 +14,9 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 function PostEditor({ topics }) {
   const [textToCopy, setTextToCopy] = useState('');
 
-  const { editablePostData, postContent } = useSelector((state) => state.userPostsReducer);
+  const { editablePostData } = useSelector((state) => state.userPostsReducer);
 
   const [postTitle, setPostTitle] = useState(editablePostData?.header || '');
-  console.log(postTitle)
   const [previewMode, setPreviewMode] = useState(false);
 
   const dispatch = useDispatch();
@@ -104,15 +103,18 @@ function PostEditor({ topics }) {
 
   const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
   const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
-
+const {postContent}= useSelector((state) => state.userPostsReducer);
+  const [ContentOfPost, setContent] = useState(postContent);
   return (
     <div className="flex flex-col space-y-4 grow w-full p-6 border-b-2 border-neutral-3 overflow-auto">
       {(previewMode) ?
         <MarkdownPreviewRef className="grow border-b-2 border-neutral-3" source={postContent} /> :
         <><Input value={postTitle} onChange={(text) => { setPostTitle(text) }} type="text" placeholder="Post title" largeFont />
         
-          <textarea className="grow p-4 text-xl border-[3px] border-neutral-3 rounded-lg focus:outline-none"
-            placeholder="Enter Markdown text ..." value={postContent} onInput={(event) => { handleInput(event.target.value) }} /></>}
+          <textarea className=" bg-neutral-1 grow p-4 text-xl border-[3px] border-neutral-3 rounded-lg focus:outline-none"
+            placeholder="Enter Markdown text ..." value={ContentOfPost} onInput={(event) => { handleInput(event.target.value) }} /></>}
+ <textarea className=" bg-neutral-1 grow p-4 text-l border-[3px] border-neutral-3 rounded-lg focus:outline-none"
+            placeholder="Enter Markdown text ..." value={transcript} />
 
       <div className="flex justify-end space-x-4">
       <Button onClick={startListening}>
@@ -120,7 +122,14 @@ function PostEditor({ topics }) {
             <span>Start Listening</span>
       </Button>
       
-      <Button onClick={SpeechRecognition.stopListening}>
+      <Button onClick={()=>{
+    SpeechRecognition.stopListening();
+    let testing = ContentOfPost + ' ' + transcript+ ' ';
+    setContent(testing)
+   dispatch(setPostContent(testing));
+   
+console.log("kch to bolo baapu",testing);
+      }}>
               <ReactIcon src={<MdPublish className="w-6 h-6" />} color="white" />
             <span>Stop Listening</span>
       </Button>

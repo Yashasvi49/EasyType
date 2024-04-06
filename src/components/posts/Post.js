@@ -113,7 +113,17 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
   const topics = post.topics.map((topic) => (
     <p key={topic} className="ml-2 mb-2 px-4 py-1.5 text-lg bg-neutral-1 rounded-xl">{topic}</p>
   ));
-
+const readPost = () => {
+  if ('speechSynthesis' in window) {
+    // Speech Synthesis is supported 🎉
+    const datas = post.content;
+    let utterance = new SpeechSynthesisUtterance(datas);
+speechSynthesis.speak(utterance);
+   }else{
+    console.log("nahi karta support");
+     // Speech Synthesis is not Supported 😞 
+   }
+}
   const markPostIcon = classNames('w-[1.6rem]', 'h-[1.6rem]',
     { 'cursor-pointer duration-150 hover:opacity-75 active:scale-125': !(editButtons || auth.currentUser?.uid === post.uid) });
 
@@ -163,7 +173,18 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
             <ReactIcon src={<BiSolidBookmark className={markPostIcon} onClick={markPost} />}
               color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#A1A19C')} />
             <p className="text-2xl">{post.marked.length}</p>
+          </div> 
+          <div className="flex items-center space-x-2">
+            <ReactIcon src={<FaHeart className="w-6 h-6 cursor-pointer duration-150 hover:opacity-75 active:scale-125" onClick={addReaction} />}
+              color={(post.reactions.includes(auth.currentUser?.uid) ? 
+              '#127be3' : '#A1A19C')} />
+            <p className="text-2xl">{post.reactions.length}</p>
           </div>
+
+          <div className="flex items-center space-x-2">
+            <ReactIcon src={<BiSolidBookmark className={markPostIcon} onClick={readPost} />}
+              color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#A1A19C')} />
+            </div>
         </div>
 
         <p className="flex justify-end flex-wrap -mb-2">{topics}</p>
