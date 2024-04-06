@@ -8,6 +8,7 @@ import Sidebar from './components/navigation/Sidebar';
 import Route from './components/navigation/Route';
 import NotificationBar from './components/notifications/NotificationBar';
 import UserPosts from './components/posts/UserPosts';
+import Chat from './pages/Chat';
 
 function App() {
   const dispatch = useDispatch();
@@ -61,6 +62,9 @@ function App() {
 
         <Route path="/user-info">
           <UserInfoPage />
+        </Route>
+        <Route path="/chat">
+          <Chat />
         </Route>
       </main>
     </div>

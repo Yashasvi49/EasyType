@@ -9,11 +9,15 @@ import MarkdownPreviewRef from '@uiw/react-markdown-preview';
 import Button from '../other/Button';
 import Input from '../input/Input';
 import ReactIcon from '../other/ReactIcon';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function PostEditor({ topics }) {
+  const [textToCopy, setTextToCopy] = useState('');
+
   const { editablePostData, postContent } = useSelector((state) => state.userPostsReducer);
 
   const [postTitle, setPostTitle] = useState(editablePostData?.header || '');
+  console.log(postTitle)
   const [previewMode, setPreviewMode] = useState(false);
 
   const dispatch = useDispatch();
@@ -98,22 +102,35 @@ function PostEditor({ topics }) {
     }));
   }
 
+  const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+  const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+
   return (
     <div className="flex flex-col space-y-4 grow w-full p-6 border-b-2 border-neutral-3 overflow-auto">
       {(previewMode) ?
         <MarkdownPreviewRef className="grow border-b-2 border-neutral-3" source={postContent} /> :
         <><Input value={postTitle} onChange={(text) => { setPostTitle(text) }} type="text" placeholder="Post title" largeFont />
+        
           <textarea className="grow p-4 text-xl border-[3px] border-neutral-3 rounded-lg focus:outline-none"
             placeholder="Enter Markdown text ..." value={postContent} onInput={(event) => { handleInput(event.target.value) }} /></>}
 
       <div className="flex justify-end space-x-4">
+      <Button onClick={startListening}>
+              <ReactIcon src={<MdPublish className="w-6 h-6" />} color="white" />
+            <span>Start Listening</span>
+      </Button>
+      
+      <Button onClick={SpeechRecognition.stopListening}>
+              <ReactIcon src={<MdPublish className="w-6 h-6" />} color="white" />
+            <span>Stop Listening</span>
+      </Button>
         <Button onClick={openPreviewMode} secondary>
           {(previewMode) ?
             <ReactIcon src={<MdArrowBack className="w-6 h-6" />} color="black" /> :
             <ReactIcon src={<MdPreview className="w-6 h-6" />} color="black" />}
           <span className="text-[black]">{(previewMode) ? 'Back to editing' : 'Preview'}</span>
         </Button>
-
+    
         {(previewMode) ?
           <Button onClick={publishPost}>
             {(editablePostData) ?
