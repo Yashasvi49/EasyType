@@ -22,7 +22,7 @@ function PhotoSelect({ value, onChange }) {
         <label className="cursor-pointer" htmlFor="userPhoto">
           {(value && photo) ?
             <img className="w-36 h-36 rounded-full object-cover" src={photo} alt="" /> :
-            <ReactIcon src={<BiSolidCameraPlus className="w-28 h-28" />} color="" />}
+            <ReactIcon src={<BiSolidCameraPlus className="w-24 h-24" />} color="bg-gray-200" />}
         </label>
 
         <input className="absolute -z-10 w-[0.1px] h-[0.1px] opacity-0" id="userPhoto" type="file"

@@ -36,7 +36,7 @@ function MultipleSelect({ value, onChange, title, options }) {
     'before:hover:opacity-75', 'before:active:scale-110');
 
   const multipleSelectClass = classNames('flex', 'justify-between', 'space-x-2', 'items-center', 'w-60', 'px-4', 'py-2.5',
-    'bg-neutral-3', 'rounded-lg', 'border-4', 'border-neutral-2', 'cursor-pointer');
+    'bg-neutral-3', 'rounded-lg', 'border-2', 'border-neutral-2', 'cursor-pointer');
 
   const multipleSelectOptionsClass = classNames('absolute', 'z-20', 'flex', 'flex-col', 'w-full', 'bg-neutral-3', 'rounded-lg',
     'origin-top', { 'animate-open-dropdown': isOpen === 2, 'animate-close-dropdown': isOpen === 1, 'hidden': isOpen === 0 });
