@@ -125,7 +125,7 @@ function SignIn() {
             <span>Sign In</span>
           </Button>
 
-          <Button className="w-full" onClick={()=>signInWithGoogle}>
+          <Button className="w-full" onClick={signInWithGoogle}>
             <img className="w-6 h-6" src={google} alt="" />
             <span>Google</span>
           </Button>
