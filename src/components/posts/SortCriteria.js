@@ -22,15 +22,15 @@ function SortCriteria({ title }) {
   }
 
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center  space-x-3">
       <p className="text-xl 2xl:text-lg">{title}</p>
       <div className="flex flex-col justify-center space-y-1">
         <ReactIcon src={
           <BiSolidUpArrow className="w-4 h-4 cursor-pointer duration-150 hover:opacity-60" onClick={setAscendingOrder} />
-        } color={(sortCriteria === title && sortOrder === 1) ? '#73C67E' : 'black'} />
+        } color={(sortCriteria === title && sortOrder === 1) ? '#73C67E' : 'gray'} />
         <ReactIcon src={
           <BiSolidDownArrow className="w-4 h-4 cursor-pointer duration-150 hover:opacity-60" onClick={setDescendingOrder} />
-        } color={(sortCriteria === title && sortOrder === 2) ? '#73C67E' : 'black'} />
+        } color={(sortCriteria === title && sortOrder === 2) ? '#73C67E' : 'gray'} />
       </div>
     </div>
   );

@@ -3,12 +3,16 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 #root {
   height: 100vh;
   color: #fff;
+  font-family: Roboto;
+
 }
+
 input[type="checkbox"]:checked + label::before {
   padding: 5px;
   background-image: url('./svg/check.svg');
@@ -17,12 +21,16 @@ input[type="checkbox"]:checked + label::before {
   background-repeat: no-repeat;
   background-origin: content-box;
 }
-
+.posts-border {
+  border-color: rgb(80, 79, 79);
+}
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
-
+.profile-border {
+  border-color: rgb(82, 82, 82);
+}
 ::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: #d9d9cc;

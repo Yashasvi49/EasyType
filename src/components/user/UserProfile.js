@@ -184,7 +184,7 @@ function UserProfile() {
   };
 
   return (
-    <section className="flex flex-col items-center self-start space-y-4 p-6 bg-[white] rounded-xl shadow-lg lg:self-center">
+    <section className="flex flex-col items-center self-start space-y-4 p-6 bg-[#0a1e28] border profile-border rounded-xl shadow-lg lg:self-center">
       <PhotoSelect value={userPhoto} onChange={updateUserProfile} />
 
       <div className="flex space-x-2">
@@ -194,21 +194,21 @@ function UserProfile() {
 
       <div className="flex flex-col space-y-2 w-full">
         <Input value={userName} onChange={(text) => { setUserName(text) }} onSubmit={updateUserProfile}
-          type="text" placeholder="User name" icon={<BiSolidUser className="h-8 w-8" />} updateButton />
+          type="text" placeholder="User name" icon={<BiSolidUser className="h-6 w-6" />} updateButton />
         <Input value={userEmail} onChange={(text) => { setUserEmail(text) }} onSubmit={updateUserEmail}
-          type="text" placeholder="User email" icon={<MdEmail className="h-8 w-8" />} updateButton />
+          type="text" placeholder="User email" icon={<MdEmail className="h-6 w-6" />} updateButton />
       </div>
 
       <div className="flex flex-col space-y-2">
         <Input value={userPassword} onChange={(text) => { setUserPassword(text) }}
-          type="password" placeholder="Current password" icon={<MdLock className="h-8 w-8" />} />
+          type="password" placeholder="Current password" icon={<MdLock className="h-6 w-6" />} />
         <Input value={newUserPassword} onChange={(text) => { setNewUserPassword(text) }} onSubmit={updateUserPassword}
-          type="password" placeholder="New password" icon={<MdLock className="h-8 w-8" />} updateButton />
+          type="password" placeholder="New password" icon={<MdLock className="h-6 w-6" />} updateButton />
       </div>
 
-      <Button className="w-full bg-secondary hover:bg-secondarySaturated" onClick={logout}>
-        <ReactIcon src={<MdLogout className="w-6 h-6" />} color="black" />
-        <span className="text-[black]">Logout</span>
+      <Button className="w-full bg-[#1e1d1d] hover:bg-gray-800" onClick={logout}>
+        <ReactIcon src={<MdLogout className="w-6 h-6" />} color="white" />
+        <span className="text-[white]">Logout</span>
       </Button>
     </section>
   );

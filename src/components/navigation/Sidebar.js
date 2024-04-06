@@ -10,31 +10,31 @@ function Sidebar() {
 
   const defineIconColor = (href) => {
     if (href === currentPath) {
-      return '#00A9BC';
+      return '#FFFFFF';
     }
-    return '#73C67E';
+    return '#EEEEEE';
   }
 
-  const navClass = classNames('z-20', 'flex', 'flex-col', 'justify-center',
-    'space-y-8', 'h-full', 'border-r-[3px]', 'border-neutral-3', 'bg-neutral-2',
+  const navClass = classNames('z-30', 'flex', 'flex-col', 'justify-center',
+    'space-y-8', 'h-full', 'border-r-[1px]', 'border-neutral-3', 'bg-[#0a1e28]',
     'sm:flex-row', 'sm:space-x-6', 'sm:space-y-0', 'sm:order-2', 'sm:border-t-[3px]', 'sm:border-r-0');
 
   return (
     <nav className={navClass}>
       <SidebarLink href="/" title="Home" selected={currentPath === '/'}>
-        <ReactIcon src={<BiSolidHome className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/')} />
+        <ReactIcon src={<BiSolidHome className="w-10 h-10 sm:w-10 sm:h-10" />} color={defineIconColor('/')} />
       </SidebarLink>
 
       <SidebarLink href="/subscriptions" title="For you" selected={currentPath === '/subscriptions'}>
-        <ReactIcon src={<IoMdNotifications className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/subscriptions')} />
+        <ReactIcon src={<IoMdNotifications className="w-10 h-10 sm:w-10 sm:h-10" />} color={defineIconColor('/subscriptions')} />
       </SidebarLink>
 
       <SidebarLink href="/marked" title="Marked" selected={currentPath === '/marked'}>
-        <ReactIcon src={<BiSolidBookmark className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
+        <ReactIcon src={<BiSolidBookmark className="w-8 h-8 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
       </SidebarLink>
 
       <SidebarLink href="/profile" title="Profile" selected={currentPath === '/profile'}>
-        <ReactIcon src={<BiSolidUser className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/profile')} />
+        <ReactIcon src={<BiSolidUser className="w-8 h-8 sm:w-10 sm:h-10" />} color={defineIconColor('/profile')} />
       </SidebarLink>
     </nav>
   );

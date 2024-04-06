@@ -9,7 +9,7 @@ import { db, auth } from '../../firebase-config';
 import ReactIcon from '../other/ReactIcon';
 import Button from '../other/Button';
 
-function UserInfo() {
+function  UserInfo() {
   const { userData } = useSelector((state) => state.navigationReducer);
   const dispatch = useDispatch();
 
@@ -58,7 +58,7 @@ function UserInfo() {
   };
 
   return (
-    <div className="flex flex-col items-center self-start space-y-2 p-6 bg-[white] rounded-xl shadow-lg lg:self-center">
+    <div className="flex flex-col items-center self-start space-y-2 p-6 bg-[black] rounded-xl shadow-lg lg:self-center">
       {(userData.photoURL) ?
         <img className="w-36 h-36 rounded-full object-cover" src={userData.photoURL} alt="User logo" /> :
         <ReactIcon src={<BiSolidUser className="w-36 h-36 -mb-2" />} color="" />}

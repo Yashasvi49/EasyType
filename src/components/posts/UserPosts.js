@@ -116,7 +116,7 @@ function UserPosts({ arrayName }) {
     let noPostsText;
     switch (arrayName) {
       case 'ownPosts':
-        noPostsText = 'You haven\'t published any posts';
+        noPostsText = 'You haven\'t published any posts yet!';
         break;
       case 'subscriptions':
         noPostsText = 'You haven\'t followed any user';
@@ -128,7 +128,7 @@ function UserPosts({ arrayName }) {
         noPostsText = 'The user hasn\'t published any posts';
         break;
     }
-    content = <p className="text-2xl text-center text-neutral-4">{noPostsText}</p>;
+    content = <p className="text-2xl text-center text-gray-200">{noPostsText}</p>;
   } else if (userPosts[arrayName].length > 0 && sortedPosts.length === 0) {
     content = <p className="text-2xl text-center text-neutral-4">There are no posts on established topics</p>;
   } else {
@@ -151,7 +151,7 @@ function UserPosts({ arrayName }) {
     'grow', 'space-y-4', 'w-full', 'p-6', 'overflow-auto', 'border-b-2', 'border-neutral-3');
 
   return (
-    <section className="flex flex-col items-center grow bg-[white] rounded-xl shadow-lg">
+    <section className="flex flex-col items-center grow border bg-[#0a1d27] posts-border rounded-xl shadow-lg">
       <header className={headerClass}>
         {arrayName === 'ownPosts' &&
           <Button className="xl:order-1 md:order-1" onClick={handleSetPostMode}>
@@ -183,8 +183,8 @@ function UserPosts({ arrayName }) {
 
       {!addEditPostMode &&
         <footer className="flex justify-around items-center w-full p-4">
-          <p className="text-neutral-4">Number of posts: {userPosts[arrayName].length}</p>
-          <p className="text-neutral-4">Number of reactions: {reactions}</p>
+          <p className="text-gray-300">Number of posts: {userPosts[arrayName].length}</p>
+          <p className="text-gray-300">Number of reactions: {reactions}</p>
         </footer>}
     </section>
   );
