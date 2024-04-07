@@ -17,9 +17,9 @@ function Input({ value, onChange, onSubmit, type, placeholder, icon, updateButto
     <BiSolidShow className="h-6 w-6 cursor-pointer hover:opacity-75" onClick={() => { setShowPassword(true) }} />
 
   const inputParentClass = classNames('flex', 'space-x-2', 'items-center', 'px-4', 'py-2.5',
-    'border-b', 'rounded-lg', '', '');
+    'border-b', 'rounded-lg', 'outline-none', 'border-none','focus:none');
 
-  const inputClass = classNames('grow', { 'text-lg 2xl:text-lg': !largeFont, 'text-2xl': largeFont }, 'bg-[transparent]', 'outline-0');
+  const inputClass = classNames('grow', { 'text-lg 2xl:text-lg': !largeFont, 'text-2xl': largeFont }, 'bg-[transparent]', 'outline-none', 'border-b', '');
 
   return (
     <form className={inputParentClass} onSubmit={handleSubmit}>
