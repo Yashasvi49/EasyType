@@ -263,6 +263,7 @@ speechSynthesis.speak(utterance);
             </CardFooter>
           </Card>
         </Dialog>
+        <ToastContainer/>
     </div>
   );
 }
