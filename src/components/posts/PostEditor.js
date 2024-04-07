@@ -92,6 +92,7 @@ function PostEditor({ topics }) {
   }
 
   const handleInput = (text) => {
+    setTextToCopy(text)
     dispatch(setPostContent(text));
   }
 
@@ -112,7 +113,7 @@ const {postContent}= useSelector((state) => state.userPostsReducer);
         <><Input value={postTitle} onChange={(text) => { setPostTitle(text) }} type="text" placeholder="Post title" largeFont />
         
           <textarea className=" bg-neutral-1 grow p-4 text-xl border-[3px] border-neutral-3 rounded-lg focus:outline-none"
-            placeholder="Enter Markdown text ..." value={ContentOfPost} onInput={(event) => { handleInput(event.target.value) }} /></>}
+            placeholder="Enter Markdown text ..." value={textToCopy} onInput={(event) => { handleInput(event.target.value) }} /></>}
  <textarea className=" bg-neutral-1 grow p-4 text-l border-[3px] border-neutral-3 rounded-lg focus:outline-none"
             placeholder="Enter Markdown text ..." value={transcript} />
 

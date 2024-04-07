@@ -33,9 +33,9 @@ function Sidebar() {
         <ReactIcon src={<BiSolidBookmark className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
       </SidebarLink>
 
-      <SidebarLink href="/chat" title="Chat Bot" selected={currentPath === '/chat'}>
+      {/* <SidebarLink href="/chat" title="Chat Bot" selected={currentPath === '/chat'}>
         <ReactIcon src={<BiSolidBookmark className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
-      </SidebarLink>
+      </SidebarLink> */}
 
       <SidebarLink href="/profile" title="Profile" selected={currentPath === '/profile'}>
         <ReactIcon src={<BiSolidUser className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/profile')} />
