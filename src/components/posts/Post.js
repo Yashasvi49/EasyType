@@ -46,7 +46,9 @@ function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, sho
         const result = await axios.post("https://acebackend.vercel.app/message",{
         inimessage,Name,uid
      })
-     toast("Successfully commit...")
+     dispatch(showNotification({
+      id: nanoid(), type: 'info', text: "Successfully commit..."
+    }));
       } catch (error) {
         console.log(error);
       }
@@ -263,7 +265,7 @@ speechSynthesis.speak(utterance);
             </CardFooter>
           </Card>
         </Dialog>
-        <ToastContainer/>
+        <ToastContainer />
     </div>
   );
 }
