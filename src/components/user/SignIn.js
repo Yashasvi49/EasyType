@@ -48,7 +48,6 @@ function SignIn() {
   const setUserData = async () => {
     try {
       const creationTime = new Date(auth.currentUser.metadata.creationTime);
-
       await setDoc(doc(db, 'users', auth.currentUser.uid, 'posts', 'userData'), {
         uid: auth.currentUser.uid,
         photoURL: auth.currentUser.providerData[0].photoURL || '',
