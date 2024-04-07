@@ -12,8 +12,8 @@ function TopPanel() {
   const filterByPopularityContent = filterByPopularityOptions.map((option) => {
     const optionClass = classNames('px-4', 'py-1.5', 'text-lg',
       {
-        'bg-neutral-3 hover:bg-neutralSaturated-1': filterByPopularity !== option,
-        'bg-neutral-4 text-[white] hover:bg-neutralSaturated-2': filterByPopularity === option
+        'bg-neutral-3 hover:bg-blue-700': filterByPopularity !== option,
+        'bg-neutral-4 text-[white] hover:bg-blue-700': filterByPopularity === option
       },
       'rounded-lg', 'cursor-pointer', 'duration-150');
 
@@ -28,10 +28,10 @@ function TopPanel() {
   const filterByTopicsContent = TOPICS_LIST.map((option) => {
     const optionClass = classNames('px-4', 'py-1.5', 'text-lg',
       {
-        'bg-neutral-3 hover:bg-neutralSaturated-1': !filteringTopics.includes(option),
-        'bg-neutral-4 text-[white] hover:bg-neutralSaturated-2': filteringTopics.includes(option)
+        'bg-neutral-3 hover:bg-blue-700': !filteringTopics.includes(option),
+        'bg-neutral-4 text-[white] hover:bg-blue-700': filteringTopics.includes(option)
       },
-      'rounded-lg', 'cursor-pointer', 'duration-150');
+      'rounded-lg', 'cursor-pointer', 'duration-150', 'hover:bg-blue-700');
 
     return <div key={option} className={optionClass}
       onClick={() => {

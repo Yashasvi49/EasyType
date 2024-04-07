@@ -10,9 +10,9 @@ function Sidebar() {
 
   const defineIconColor = (href) => {
     if (href === currentPath) {
-      return '#127be3';
+      return 'gray';
     }
-    return '#006494';
+    return 'white';
   }
 
   const navClass = classNames('z-20', 'flex', 'flex-col', 'justify-center',
