@@ -1,42 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+.signup-page {
+ 
+    backdrop-filter: blur(40px); /* Apply blur effect */
+}
+.App{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://wp.frog.co/wp-content/uploads/2020/06/HBO_designmind_2.gif)
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-
-#root {
-  height: 100vh;
-  color: #fff;
-  font-family: Roboto;
-
 }
-/*
-input[type="checkbox"]:checked + label::before {
-  padding: 5px;
-  background-image: url('./svg/check.svg');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-origin: content-box;
+body {
+  color: white;
 }
-.posts-border {
-  border-color: rgb(80, 79, 79);
+.comment-div {
+  background-color: rgb(3, 46, 152);
+  border-radius: 20px;
 }
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.comment-div input {
+  outline: none;
+  color: rgb(215, 215, 215);
+  border-bottom: 1px solid white;
+  background-color: none;
+  background-color: transparent;
 }
-.profile-border {
-  border-color: rgb(82, 82, 82);
+.comment-btn {
+  background-color: rgb(10, 149, 255);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
 }
-::-webkit-scrollbar-thumb {
-  width: 10px;
-  background-color: #d9d9cc;
-  border-radius: 5px;
+.my-bg {
+    background-image: url(https://wp.frog.co/wp-content/uploads/2020/06/HBO_designmind_2.gif);
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #bfbfb4;
-} */

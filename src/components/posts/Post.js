@@ -10,13 +10,47 @@ import { auth, db } from '../../firebase-config';
 import MarkdownPreviewRef from '@uiw/react-markdown-preview';
 import ReactIcon from '../other/ReactIcon';
 import classNames from 'classnames';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  Button,
+  Dialog,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  input,
+  Checkbox,
+} from "@material-tailwind/react";
+import axios from "axios";
 function Post({ arrayName, onToggleReaction, onTogglePostMark, onEdit, post, showUserData, editButtons }) {
+   //Window popup
+   const [open, setOpen] = useState(false);
+   const [inimessage, finmessage] = useState("");
   const [showFullContent, setShowFullContent] = useState(0);
   const dispatch = useDispatch();
 
   const postContentRef = useRef();
-
+     //Window handeler
+     const handleOpen = () => setOpen((cur) => !cur);
+  const setmessage = (e)=>{
+    const value = e.target.value;
+    finmessage(value)
+  }
+     const savedata = async(e)=>{
+       console.log(inimessage)
+      const Name = auth.currentUser.displayName
+      const uid = post.uid;
+      try {
+        const result = await axios.post("http://localhost:1212/message",{
+        inimessage,Name,uid
+     })
+     toast("Successfully commit...")
+      } catch (error) {
+        console.log(error);
+      }
+     }
   useEffect(() => {
     if (postContentRef) {
       if (postContentRef.current.getBoundingClientRect().height > 500) {
@@ -174,21 +208,57 @@ speechSynthesis.speak(utterance);
               color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#A1A19C')} />
             <p className="text-2xl">{post.marked.length}</p>
           </div> 
-          <div className="flex items-center space-x-2">
-            <ReactIcon src={<FaHeart className="w-6 h-6 cursor-pointer duration-150 hover:opacity-75 active:scale-125" onClick={addReaction} />}
-              color={(post.reactions.includes(auth.currentUser?.uid) ? 
-              '#127be3' : '#A1A19C')} />
-            <p className="text-2xl">{post.reactions.length}</p>
+          <div onClick={handleOpen} className="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z"/>
+</svg>
           </div>
 
           <div className="flex items-center space-x-2">
-            <ReactIcon src={<BiSolidBookmark className={markPostIcon} onClick={readPost} />}
-              color={(post.marked.includes(auth.currentUser?.uid) ? '#00A9BC' : '#A1A19C')} />
+               <svg  onClick={readPost} class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M18.458 3.11A1 1 0 0 1 19 4v16a1 1 0 0 1-1.581.814L12 16.944V7.056l5.419-3.87a1 1 0 0 1 1.039-.076ZM22 12c0 1.48-.804 2.773-2 3.465v-6.93c1.196.692 2 1.984 2 3.465ZM10 8H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6V8Zm0 9H5v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3Z" clip-rule="evenodd"/>
+</svg>
+
             </div>
+            
         </div>
 
         <p className="flex justify-end flex-wrap -mb-2">{topics}</p>
       </div>
+
+      <Dialog
+          size="xs"
+          open={open}
+          handler={handleOpen}
+          className=" flex h-screen items-center  shadow-none"
+        >
+          <Card className="mx-auto w-full max-w-[24rem]">
+            <CardBody className="flex comment-div flex-col gap-4">
+              <div className="flex  ">
+              <Typography className="flex align-middle m-auto justify-center"  variant="h4" color="blue-gray">
+                Comment
+              </Typography>
+              <button onClick={handleOpen}  className="flex border-2 rounded-full w-8 items-center m-auto justify-center h-8 text-2xl absolute right-10  "  variant="h4" color="blue-gray">
+                X
+              </button>
+              </div>
+              <Typography className="-mb-2" variant="h6">
+                Message
+              </Typography>
+              <input className="py-2 px-1" onChange={setmessage}  name="Message" placeholder="Enter your comment..." size="lg" />
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button className='comment-btn' variant="gradient" onClick={()=>{
+                savedata();
+                handleOpen()
+              }} fullWidth>
+                Send
+              </Button>
+              
+              
+            </CardFooter>
+          </Card>
+        </Dialog>
     </div>
   );
 }
