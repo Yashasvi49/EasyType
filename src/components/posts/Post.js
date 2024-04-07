@@ -171,7 +171,11 @@ speechSynthesis.speak(utterance);
           <p className="text-2xl">{post.userData.name || 'Anonymous'}</p>
         </div>}
 
+        <div className='card-date'>
         <p className="break-words">{formatDate(post.publishDate)}{post.editDate && ` (edited ${formatDate(post.editDate)})`}</p>
+        </div>
+
+       
 
         {editButtons && <div className="flex space-x-2">
           <ReactIcon src={<MdEdit className="w-8 h-8 cursor-pointer duration-150 hover:opacity-75" onClick={editPost} />} color="#127be3" />

@@ -31,7 +31,7 @@ function MultipleSelect({ value, onChange, title, options }) {
 
   const checkboxClass = classNames('relative', 'text-xl 2xl:text-lg', 'pl-10', 'cursor-pointer',
     'before:absolute', 'before:left-0', 'before:top-1/2', 'before:-translate-y-1/2',
-    'before:inline-block', 'before:w-6', 'before:h-6', 'before:my-auto', 'before:bg-primary',
+    'before:inline-block', 'before:w-6', 'before:h-6', 'before:my-auto', 'before:bg-primary','focus:bg-red-500',
     'before:rounded-[30%]', 'before:duration-150', 'before:transition-[opacity,transform]',
     'before:hover:opacity-75', 'before:active:scale-110');
 
