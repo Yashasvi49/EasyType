@@ -169,7 +169,7 @@ function UserPosts({ arrayName }) {
 
         {(addEditPostMode) ?
           <div className="xl:order-2 md:order-2"><MultipleSelect value={blogTopics} onChange={(value) => { setBlogTopics(value) }}
-            title="Topics" options={TOPICS_LIST} /></div> :
+            title="Topics" key={Math.random} options={TOPICS_LIST} /></div> :
           <div className="xl:order-2 md:order-2"><MultipleSelect value={filteringTopics} onChange={(value) => { setFilteringTopics(value) }}
             title="Topics" options={TOPICS_LIST} /></div>}
       </header>
