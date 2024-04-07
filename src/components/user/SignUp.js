@@ -93,7 +93,7 @@ function SignUp() {
 
   return (
     <div className="h-full flex justify-center items-center">
-      <section className="flex flex-col items-center p-6 bg-[white] rounded-xl shadow-lg">
+      <section className="flex flex-col items-center p-6 border-2 border-white rounded-xl shadow-lg">
         <ReactIcon src={<BiSolidUserRectangle className="w-28 h-28 mb-4" />} color="" />
 
         <div className="w-full mb-4">
