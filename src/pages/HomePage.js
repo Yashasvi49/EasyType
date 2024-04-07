@@ -81,8 +81,8 @@ function HomePage() {
   return (
     <div className="flex flex-col space-y-6 h-full p-6 sm:overflow-auto">
       <div className="inline-grid grid-cols-[1fr] grid-rows-[repeat(2,_auto)] self-center gap-4">
-        <Input className="w-full" value={searchTerm} onChange={(text) => { dispatch(setSearchTerm(text)) }}
-          type="text" placeholder="Search posts" icon={<BiSolidSearchAlt2 className="h-8 w-8" />} />
+        {/* <Input className="w-full" value={searchTerm} onChange={(text) => { dispatch(setSearchTerm(text)) }}
+          type="text" placeholder="Search posts" icon={<BiSolidSearchAlt2 className="h-8 w-8" />} /> */}
         <TopPanel />
       </div>
 
