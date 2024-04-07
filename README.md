@@ -107,6 +107,9 @@ The last section of a high-quality README file is the license. This lets other d
   <img width="15" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="35" alt="nodejs logo"  />
   <img width="15" />
+  <img src="https://cdn.sanity.io/images/bj34pdbp/migration/9f64bd2c0bc7662e57c0179621069f44a8185011-1608x656.jpg?w=3840&q=100&fit=clip&auto=format" height="35" alt="replit logo"  />
+  <img width="15" />
+  <img width="15" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="35" alt="tailwindcss logo"  />
   <img width="15" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="35" alt="git logo"  />
