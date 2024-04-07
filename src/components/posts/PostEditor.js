@@ -117,12 +117,12 @@ const {postContent}= useSelector((state) => state.userPostsReducer);
  <textarea className=" bg-neutral-1 grow p-4 text-l border-[3px] border-neutral-3 rounded-lg focus:outline-none"
             placeholder="Enter Markdown text ..." value={transcript} />
 
-      <div className="flex justify-end space-x-4">
+      <div className="flex justify-between">
+       <div className='flex items-center gap-3'>
       <Button onClick={startListening}>
               <ReactIcon src={<MdPublish className="w-6 h-6" />} color="white" />
             <span>Start Listening</span>
-      </Button>
-      
+      </Button>  
       <Button onClick={()=>{
     SpeechRecognition.stopListening();
     let testing = ContentOfPost + ' ' + transcript+ ' ';
@@ -134,6 +134,8 @@ console.log("kch to bolo baapu",testing);
               <ReactIcon src={<MdPublish className="w-6 h-6" />} color="white" />
             <span>Stop Listening</span>
       </Button>
+      </div>
+     <div className='flex items-center gap-3'>
         <Button onClick={openPreviewMode} secondary>
           {(previewMode) ?
             <ReactIcon src={<MdArrowBack className="w-6 h-6" />} color="black" /> :
@@ -152,6 +154,7 @@ console.log("kch to bolo baapu",testing);
             <ReactIcon src={<MdClear className="w-6 h-6" />} color="white" />
             <span>Clear</span>
           </Button>}
+      </div >
       </div>
     </div>
   );

@@ -93,6 +93,7 @@ function UserPosts({ arrayName }) {
       });
       dispatch(setUserPosts({ arrayName, postsData, userData: { subscribers, subscriptions } }));
     } catch (error) {
+      console.log(error)
       dispatch(showNotification({
         id: nanoid(), type: 'Error', text: 'An error occurred while trying to retrieve posts'
       }));
