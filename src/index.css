@@ -12,6 +12,15 @@
   font-family: Roboto;
 
 }
+.card-date {
+  background-color: rgb(67, 165, 245);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 10px;
+  font-size: 12px;
+}
 /*
 input[type="checkbox"]:checked + label::before {
   padding: 5px;

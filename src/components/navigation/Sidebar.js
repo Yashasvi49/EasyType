@@ -22,15 +22,15 @@ function Sidebar() {
   return (
     <nav className={navClass}>
       <SidebarLink href="/" title="Home" selected={currentPath === '/'}>
-        <ReactIcon src={<BiSolidHome className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/')} />
+        <ReactIcon src={<BiSolidHome className="w-10 h-10 sm:w-10 sm:h-10" />} color={defineIconColor('/')} />
       </SidebarLink>
 
       <SidebarLink href="/subscriptions" title="For you" selected={currentPath === '/subscriptions'}>
-        <ReactIcon src={<IoMdNotifications className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/subscriptions')} />
+        <ReactIcon src={<IoMdNotifications className="w-10 h-10 sm:w-10 sm:h-10" />} color={defineIconColor('/subscriptions')} />
       </SidebarLink>
 
       <SidebarLink href="/marked" title="Marked" selected={currentPath === '/marked'}>
-        <ReactIcon src={<BiSolidBookmark className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
+        <ReactIcon src={<BiSolidBookmark className="w-8 h-8 sm:w-10 sm:h-10" />} color={defineIconColor('/marked')} />
       </SidebarLink>
 
       {/* <SidebarLink href="/chat" title="Chat Bot" selected={currentPath === '/chat'}>
@@ -38,7 +38,7 @@ function Sidebar() {
       </SidebarLink> */}
 
       <SidebarLink href="/profile" title="Profile" selected={currentPath === '/profile'}>
-        <ReactIcon src={<BiSolidUser className="w-12 h-12 sm:w-10 sm:h-10" />} color={defineIconColor('/profile')} />
+        <ReactIcon src={<BiSolidUser className="w-10 h-10 sm:w-10 sm:h-10" />} color={defineIconColor('/profile')} />
       </SidebarLink>
     </nav>
   );
