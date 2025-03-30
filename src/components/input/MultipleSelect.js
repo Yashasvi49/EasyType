@@ -33,7 +33,10 @@ function MultipleSelect({ value, onChange, title, options }) {
     'before:absolute', 'before:left-0', 'before:top-1/2', 'before:-translate-y-1/2',
     'before:inline-block', 'before:w-6', 'before:h-6', 'before:my-auto', 'before:bg-primary','focus:bg-red-500',
     'before:rounded-[30%]', 'before:duration-150', 'before:transition-[opacity,transform]',
-    'before:hover:opacity-75', 'before:active:scale-110');
+    'before:hover:opacity-75', 'before:active:scale-110','after:absolute', 'after:left-[7.5px]', 'after:top-1/2', 'after:-translate-y-1/2', 
+  'after:content-[""]', 'after:hidden',  'peer-checked:after:block',
+  'after:w-2', 'after:h-[8px]', 'after:border-r-[2px]', 'after:border-b-[2px]', 
+  'after:border-white', 'after:rotate-45');
 
   const multipleSelectClass = classNames('flex', 'justify-between', 'space-x-2', 'items-center', 'w-60', 'px-4', 'py-2.5',
     'bg-neutral-3', 'rounded-lg', 'border-2', 'border-neutral-2', 'cursor-pointer');
@@ -41,14 +44,13 @@ function MultipleSelect({ value, onChange, title, options }) {
   const multipleSelectOptionsClass = classNames('absolute', 'z-20', 'flex', 'flex-col', 'w-full', 'bg-neutral-3', 'rounded-lg',
     'origin-top', { 'animate-open-dropdown': isOpen === 2, 'animate-close-dropdown': isOpen === 1, 'hidden': isOpen === 0 });
 
-  const renderedOptions = options.map((option) => (
-    <div key={option} className="px-4 py-2.5 border-b-[3px] border-b-neutral-2 last:border-b-0">
-      <input className="absolute -z-10 w-[0.1px] h-[0.1px] opacity-0" type="checkbox" id={option}
-        checked={value.indexOf(option) !== -1} onChange={(event) => { changeSelectedOptions(event, option) }} />
-      <label className={checkboxClass} htmlFor={option}>{option}</label>
-    </div>
-  ));
-
+    const renderedOptions = options.map((option) => (
+      <div key={option} className="px-4 py-2.5 border-b-[3px] border-b-neutral-2 last:border-b-0">
+        <input className="absolute flex items-center -z-10 w-[0.1px] h-[0.1px] opacity-0  text-[white] peer" type="checkbox" id={option}
+          checked={value.indexOf(option) !== -1} onChange={(event) => { changeSelectedOptions(event, option) }} />
+        <label className={checkboxClass} htmlFor={option}>{option}</label>
+      </div>
+    ));
   return (
     <div className="relative space-y-1" ref={multipleSelectEl}>
       <div className={multipleSelectClass} onClick={() => { setIsOpen((isOpen === 2) ? 1 : 2) }}>
